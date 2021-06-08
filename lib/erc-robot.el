@@ -80,6 +80,10 @@
   :type '(repeat (list string (choice (const nil) (const t) string) function))
   )
 
+(defcustom erc-robot-command-prefix-pattern (concat (regexp-quote erc-nick) ": !")
+  "A regexp of the prefix to match for each commands."
+  :group 'erc)
+
 (defun erc-robot-remote (proc parsed)
   "Implements a simple robot for erc.  Messages to the robot are of the form:
 \"nick: !command args\", where:
@@ -103,8 +107,7 @@ args	- arguments to the command (optional)."
   "Robot worker."
   (let ((me (erc-current-nick)))
     (if (and erc-robot-commands
-	     (string-match (concat "^" (regexp-quote me)
-				   ": !\\([^ ]+\\) ?\\(.*\\)") msg))
+	     (string-match (concat "^" erc-robot-command-prefix-pattern "\\([^ ]+\\) ?\\(.*\\)") msg))
 					; this is a robot command to me.
 	(let* ((cmd (substring msg (match-beginning 1) (match-end 1)))
 	       (args (substring msg (match-beginning 2)))

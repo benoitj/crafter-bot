@@ -35,6 +35,10 @@
 (provide 'crafter-bot)
 
 (add-to-list 'load-path "/home/crafter-bot/bot/lib")
+
+(setq erc-nick "crafter-bot")
+(setq erc-robot-command-prefix-pattern ",")
+
 (require 'erc-robot)
 (require 'erc)
 
@@ -42,14 +46,14 @@
 (add-hook 'erc-send-completed-hook 'erc-robot-local t)
  (setq erc-robot-commands
        '(
- 	("cmds" t (lambda (args)
+ 	("help" t (lambda (args)
  		  (concat "commands available: "
  			  (mapconcat
  			   (lambda (e)
  			     (car e))
  			   erc-robot-commands " "))))
  	("hello" t (lambda (args) "hello to you too !"))
- 	("ping" t (lambda (args) "pong"))
+ 	("ping" t (lambda (args) "ping... ping... pong"))
  	("echo" t (lambda (args) args))
 	; only i'm allowed to talk to my doctor !
  	("version" t (lambda (args) (erc-version)))))
@@ -61,7 +65,7 @@
           '(("libera.chat" "#systemcrafters")))
 
 (erc-tls :server "irc.libera.chat" :port 6697
-      :nick "crafter-bot" :password (getenv "BOT_PASSWORD") )
+      :nick erc-nick :password (getenv "BOT_PASSWORD") )
 
 
 ;;; crafter-bot.el ends here
