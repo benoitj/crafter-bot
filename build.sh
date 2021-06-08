@@ -1,3 +1,4 @@
+#!/bin/sh
 ## Copyright (C) 2021 by Benoit Joly
 
 ##
@@ -15,20 +16,4 @@
 ## along with this program; if not, write to the Free Software
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-
-FROM archlinux:latest
-LABEL maintainer="Benoit Joly <benoit@benoitj.ca>"
-
-RUN pacman --noconfirm -Syu && \
-    pacman --noconfirm -S emacs
-
-RUN pacman --noconfirm -S git
-
-RUN useradd -m crafter-bot
-
-USER crafter-bot
-
-VOLUME "/home/crafter-bot/bot"
-#COPY . /home/crafter-bot/bot
-
-CMD "emacs" "-l" "/home/crafter-bot/bot/crafter-bot.el"
+docker build -t crafter-bot:latest .
