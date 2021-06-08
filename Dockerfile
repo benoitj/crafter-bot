@@ -19,6 +19,8 @@
 FROM archlinux:latest
 LABEL maintainer="Benoit Joly <benoit@benoitj.ca>"
 
+USER root
+
 RUN pacman --noconfirm -Syu && \
     pacman --noconfirm -S emacs
 
