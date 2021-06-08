@@ -28,7 +28,8 @@ RUN useradd -m crafter-bot
 
 USER crafter-bot
 
+COPY . /home/crafter-bot/bot
+
 VOLUME "/home/crafter-bot/bot"
-#COPY . /home/crafter-bot/bot
 
 CMD "emacs" "-l" "/home/crafter-bot/bot/crafter-bot.el"
