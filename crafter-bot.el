@@ -65,7 +65,8 @@
         ;; args, and have ways for admins to add urls (ie: links db not hardcoded
         ;; but as data)
  	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
-        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))))
+        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))
+        ("version" t (lambda (args) (concat "crafter-bot (tbd/tbd) " (erc-version) " --- https://github.com/benoitj/crafter-bot")))))
 
 
 
