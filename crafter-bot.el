@@ -44,7 +44,13 @@
 
 (add-hook 'erc-server-PRIVMSG-functions 'erc-robot-remote t)
 (add-hook 'erc-send-completed-hook 'erc-robot-local t)
- (setq erc-robot-commands
+
+(setq crafter-urls '(("wiki" . "https://wiki.systemcrafters.cc")
+                     ("wiki-gh" . "https://github.com/SystemCrafters/wiki-site")))
+
+;; TODO need to split this into modular functions. possibly self adding
+;; themselves when calling a function/loading
+(setq erc-robot-commands
        '(
  	("help" t (lambda (args)
  		  (concat "commands available: "
@@ -55,8 +61,13 @@
  	("hello" t (lambda (args) "hello to you too !"))
  	("ping" t (lambda (args) "ping... ping... pong"))
  	("echo" t (lambda (args) args))
-	; only i'm allowed to talk to my doctor !
- 	("version" t (lambda (args) (erc-version)))))
+        ;; TODO: we probably want to split this and, return all knows urls keys when no
+        ;; args, and have ways for admins to add urls (ie: links db not hardcoded
+        ;; but as data)
+ 	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
+        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))))
+
+
 
 
 (add-to-list 'erc-modules 'autojoin)
