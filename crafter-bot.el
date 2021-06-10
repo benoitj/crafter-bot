@@ -76,6 +76,8 @@
 (setq erc-autojoin-channels-alist
           '(("libera.chat" "#systemcrafters")))
 
+(if (getenv "BOT_PASSWORD") (message "a password was set"))
+
 (erc-tls :server "irc.libera.chat" :port 6697
       :nick erc-nick :password (getenv "BOT_PASSWORD") )
 
