@@ -34,6 +34,10 @@
 
 (provide 'crafter-bot)
 
+(defvar crafter-bot-version "local")
+
+
+
 (add-to-list 'load-path "/home/crafter-bot/bot/lib")
 
 (setq erc-nick "crafter-bot")
@@ -66,7 +70,7 @@
         ;; but as data)
  	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
         ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))
-        ("version" t (lambda (args) (concat "crafter-bot (tbd/tbd) " (erc-version) " --- https://github.com/benoitj/crafter-bot")))))
+        ("version" t (lambda (args) (concat "crafter-bot (" crafter-bot-version ") " (erc-version) " --- https://github.com/benoitj/crafter-bot")))))
 
 
 
