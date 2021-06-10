@@ -11,6 +11,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: listing
+        run: |
+          find .
       - name: create version file
         run: |
           echo "(setq crafter-bot-version \"$(git rev-parse --short HEAD)\")" > version.el
