@@ -17,6 +17,9 @@ jobs:
       - name: create version file
         run: |
           echo "(setq crafter-bot-version \"$(git rev-parse --short HEAD)\")" > version.el
+      - name: after listing
+        run: |
+          find .
       - name: Build and Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
