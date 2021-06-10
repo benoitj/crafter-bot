@@ -26,7 +26,8 @@ RUN pacman --noconfirm -Syu && \
 
 RUN pacman --noconfirm -S git
 
-RUN useradd -m -u 9999 -g 9999 crafter-bot
+RUN useradd -m crafter-bot
+#RUN useradd -m -u 9999 -g 9999 crafter-bot
 
 USER crafter-bot
 
