@@ -33,14 +33,12 @@
 ;;; Code:
 
 (provide 'crafter-bot)
-
-(defvar crafter-bot-version "local")
-
-
-
 (add-to-list 'load-path "/home/crafter-bot/bot/lib")
+
 (unless (file-exists-p "/home/crafter-bot/bot/version.el")
   (load "/home/crafter-bot/bot/version.el"))
+
+(defvar crafter-bot-version "local")
 
 (setq erc-nick "crafter-bot")
 (setq erc-robot-command-prefix-pattern ",")
