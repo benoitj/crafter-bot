@@ -39,6 +39,8 @@
 
 
 (add-to-list 'load-path "/home/crafter-bot/bot/lib")
+(unless (file-exists-p "/home/crafter-bot/bot/version.el")
+  (load "/home/crafter-bot/bot/version.el"))
 
 (setq erc-nick "crafter-bot")
 (setq erc-robot-command-prefix-pattern ",")
