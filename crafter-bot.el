@@ -52,22 +52,9 @@
 ;; TODO need to split this into modular functions. possibly self adding
 ;; themselves when calling a function/loading
 (setq erc-robot-commands
-       '(
- 	("help" t (lambda (args)
- 		  (concat "commands available: "
- 			  (mapconcat
- 			   (lambda (e)
- 			     (car e))
- 			   erc-robot-commands " "))))
- 	("hello" t (lambda (args) "hello to you too !"))
- 	("ping" t (lambda (args) "ping... ping... pong"))
- 	("echo" t (lambda (args) args))
-        ;; TODO: we probably want to split this and, return all knows urls keys when no
-        ;; args, and have ways for admins to add urls (ie: links db not hardcoded
-        ;; but as data)
- 	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
-        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))))
+       '(("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))))
 
+(require 'cmd-basic)
 (require 'version)
 
 (add-to-list 'erc-modules 'autojoin)
