@@ -33,15 +33,16 @@
 ;;; Code:
 
 (provide 'crafter-bot)
-(add-to-list 'load-path "/home/crafter-bot/bot/lib")
+(add-to-list 'load-path "lib")
 
-(unless (file-exists-p "/home/crafter-bot/bot/version.el")
-  (load "/home/crafter-bot/bot/version.el"))
+(defvar bot-commands '("version"))
 
-(defvar crafter-bot-version "local")
+(dolist (command bot-commands)
+  (if (file-exists-p (concat "lib/commands/" command ".el"))
+      (load-file (concat "lib/commands/" command ".el"))))
 
-(setq erc-nick "crafter-bot")
-(setq erc-robot-command-prefix-pattern ",")
+(defvar erc-nick "crafter-bot")
+(defvar erc-robot-command-prefix-pattern ",")
 
 (require 'erc-robot)
 (require 'erc)
