@@ -16,7 +16,7 @@ jobs:
           find .
       - name: create version file
         run: |
-          echo "(setq crafter-bot-version \"$(git rev-parse --short HEAD)\")" > version.el
+          echo "(setq bot-version \"$(git rev-parse --short HEAD)\")" > version.el
       - name: after listing
         run: |
           find .
