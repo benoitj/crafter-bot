@@ -20,14 +20,17 @@
 ;;; Code:
 
 (provide 'version)
+(require 'erc)
 
 (defvar bot-version "local")
 
 (if (file-exists-p "version.el")
   (load-file "version.el"))
 
-
-(message (concat "version: " bot-version))
-
+(defun commands/version (args)
+  "This function implement the bot ,version command."
+  (concat
+   "crafter-bot (" bot-version ") " (erc-version)
+   " --- https://github.com/benoitj/crafter-bot"))
 
 ;;; version.el ends here

@@ -33,7 +33,6 @@
 ;;; Code:
 
 (provide 'crafter-bot)
-(add-to-list 'load-path "lib")
 
 (defvar bot-commands '("version"))
 
@@ -44,7 +43,7 @@
 (defvar erc-nick "crafter-bot")
 (defvar erc-robot-command-prefix-pattern ",")
 
-(require 'erc-robot)
+(load-file "lib/erc-robot.el")
 (require 'erc)
 
 (add-hook 'erc-server-PRIVMSG-functions 'erc-robot-remote t)
@@ -71,7 +70,7 @@
         ;; but as data)
  	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
         ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))
-        ("version" t (lambda (args) (concat "crafter-bot (" crafter-bot-version ") " (erc-version) " --- https://github.com/benoitj/crafter-bot")))))
+        ("version" t commands/version)))
 
 
 

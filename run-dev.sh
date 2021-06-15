@@ -21,5 +21,4 @@ docker run -it --rm \
     --name "crafter-bot" \
     -e BOT_PASSWORD="${BOT_PASSWORD}" \
     -v "$(pwd):/home/crafter-bot/bot" \
-    "${BOT_OPTS}" \
     crafter-bot:latest "$@"
