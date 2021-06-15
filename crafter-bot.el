@@ -34,16 +34,13 @@
 
 (provide 'crafter-bot)
 
-(defvar bot-commands '("version"))
-
-(dolist (command bot-commands)
-  (if (file-exists-p (concat "lib/commands/" command ".el"))
-      (load-file (concat "lib/commands/" command ".el"))))
+(add-to-list 'load-path "lib")
+(add-to-list 'load-path "lib/commands")
 
 (defvar erc-nick "crafter-bot")
 (defvar erc-robot-command-prefix-pattern ",")
 
-(load-file "lib/erc-robot.el")
+(require 'erc-robot)
 (require 'erc)
 
 (add-hook 'erc-server-PRIVMSG-functions 'erc-robot-remote t)
@@ -69,11 +66,9 @@
         ;; args, and have ways for admins to add urls (ie: links db not hardcoded
         ;; but as data)
  	("url" t (lambda (args) (if (string-blank-p args) (cdr (assoc args crafter-urls)) (concat "urls available: "))))
-        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))
-        ("version" t commands/version)))
+        ("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!")))))
 
-
-
+(require 'version)
 
 (add-to-list 'erc-modules 'autojoin)
 

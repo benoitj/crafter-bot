@@ -33,4 +33,7 @@
    "crafter-bot (" bot-version ") " (erc-version)
    " --- https://github.com/benoitj/crafter-bot"))
 
+(add-to-list 'erc-robot-commands
+        '("version" t commands/version))
+
 ;;; version.el ends here
