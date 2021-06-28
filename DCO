@@ -1,16 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
-<html>
-<!--
-    File:   index.html
-    Editor: None, you wimpy wysiwyg people...this is hand crafted!
-            What are you doing reading this anyway???
--->
-<head>
-	<title>Developer Certificate of Origin</title>
-</head>
-
-<body>
-<pre>
 Developer Certificate of Origin
 Version 1.1
 
@@ -21,7 +8,6 @@ San Francisco, CA, 94129
 
 Everyone is permitted to copy and distribute verbatim copies of this
 license document, but changing it is not allowed.
-
 
 Developer's Certificate of Origin 1.1
 
@@ -48,7 +34,3 @@ By making a contribution to this project, I certify that:
     personal information I submit with it, including my sign-off) is
     maintained indefinitely and may be redistributed consistent with
     this project or the open source license(s) involved.
-</pre>
-
-</body>
-</html>

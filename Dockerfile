@@ -33,6 +33,12 @@ USER crafter-bot
 
 COPY . /home/crafter-bot/bot
 
+ENV BOT_IRC_SERVER="irc.libera.chat" \
+    BOT_IRC_PORT="6697" \
+    BOT_NICK="crafter-bot" \
+    BOT_PASSWORD="" \
+    BOT_CHANNEL="#systemcrafters"
+
 VOLUME "/home/crafter-bot/bot"
 WORKDIR "/home/crafter-bot/bot"
 

@@ -19,6 +19,8 @@
 
 docker run -it --rm \
     --name "crafter-bot" \
+    -e BOT_NICK="${BOT_NICK:-benoitj-bot}" \
+    -e BOT_CHANNEL="#benoitj-test" \
     -e BOT_PASSWORD="${BOT_PASSWORD}" \
     -v "$(pwd):/home/crafter-bot/bot" \
     crafter-bot:latest "$@"
