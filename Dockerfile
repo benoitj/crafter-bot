@@ -24,7 +24,8 @@ USER root
 RUN pacman --noconfirm -Syu && \
     pacman --noconfirm -S emacs
 
-RUN pacman --noconfirm -S git
+RUN pacman --noconfirm -S git \
+    make
 
 RUN useradd -m crafter-bot
 #RUN useradd -m -u 9999 -g 9999 crafter-bot

@@ -31,8 +31,21 @@
 ;;  Description
 ;;
 ;;; Code:
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(provide 'crafter-bot)
+(straight-use-package 'erc)
+(straight-use-package 'bbdb)
 
 (add-to-list 'load-path "lib")
 (add-to-list 'load-path "lib/commands")
@@ -62,7 +75,9 @@
 (require 'cmd-basic)
 (require 'version)
 
+
 (add-to-list 'erc-modules 'autojoin)
+(add-to-list 'erc-modules 'remember)
 
 ;; TODO move this to a sane place
 (defun erc-bot/get-domain (fqdn)
@@ -82,5 +97,7 @@ FQDN is the fully qualified domain, which can be 2nd level or more."
 
 (erc-tls :server erc-bot-irc-server :port erc-bot-irc-port
       :nick erc-bot-nick :password erc-bot-password)
+
+(provide 'crafter-bot)
 
 ;;; crafter-bot.el ends here
