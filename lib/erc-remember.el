@@ -28,7 +28,7 @@
         (erc-remember--get-or-create-user nick channel)))))
 
 (defun erc-remember--get-or-create-user (nick channel)
-  (let* ((ircnick (cons 'irc-nick (concat "^" (regexp-quote nick))))
+  (let* ((ircnick (concat "^" (regexp-quote nick)))
          (name nick)
          (entry (or (bbdb-search (bbdb-records) :name ircnick)
                      (when t
