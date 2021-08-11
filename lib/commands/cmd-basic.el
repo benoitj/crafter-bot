@@ -34,5 +34,7 @@
 (add-to-list 'erc-robot-commands '("ping" t (lambda (args) "ping... ping... pong")))
 (add-to-list 'erc-robot-commands '("echo" t (lambda (args) args)))
 (add-to-list 'erc-robot-commands '("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!"))))
+(add-to-list 'erc-robot-commands '("flip" t (lambda (args) "(╯°□°)╯︵ ┻━┻")))
+(add-to-list 'erc-robot-commands '("slap" t (lambda (args) (concat "Slaps " args " around a bit with a large trout"))))
 
 ;;; cmd-basic.el ends here
