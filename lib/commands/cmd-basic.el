@@ -35,6 +35,7 @@
 (add-to-list 'erc-robot-commands '("echo" t (lambda (args) args)))
 (add-to-list 'erc-robot-commands '("kudos" t (lambda (args) (concat "Hey " args ", thanks for being awesome!"))))
 (add-to-list 'erc-robot-commands '("flip" t (lambda (args) "(╯°□°)╯︵ ┻━┻")))
+(add-to-list 'erc-robot-commands '("unflip" t (lambda (args) "┬─┬﻿ ノ( ゜-゜ノ)")))
 (add-to-list 'erc-robot-commands '("slap" t (lambda (args) (concat "Slaps " args " around a bit with a large trout"))))
 (add-to-list 'erc-robot-commands '("askemacs" t (lambda (args) (concat "Emacs is the greatest source of information on Earth and has the info!\nAsk emacs (describe-function, describe-variable). More commands here: https://wiki.systemcrafters.net/emacs/help-cheatsheet/"))))
 
